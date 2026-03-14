@@ -111,6 +111,7 @@ body {
 #btnRecord { background: var(--red); color: #fff; }
 #btnRecord.recording { animation: rpulse 1.2s infinite; }
 #btnPause { background: var(--bg2); color: var(--dark); border: 1px solid var(--border); display: none; }
+.rbtn-memos { background: #1c1c1e; color: #fff; text-decoration: none; margin-left: auto; }
 #recTimer { font-size: 13px; font-weight: 700; color: var(--red); font-variant-numeric: tabular-nums; display: none; min-width: 38px; }
 #recStatus { font-size: 11px; color: var(--light); flex: 1; }
 
@@ -385,6 +386,9 @@ body.lang-ch .step-label [data-lang="ch"] { display: block; }
   <button class="rbtn" id="btnPause" onclick="togglePause()">⏸ Pause</button>
   <span id="recTimer">0:00</span>
   <span id="recStatus">Ready</span>
+  <a class="rbtn rbtn-memos" href="voicememos://" onclick="showToast('Switching to Voice Memos…')">
+    🎙 Voice Memos
+  </a>
 </div>
 
 <!-- PROGRESS -->
