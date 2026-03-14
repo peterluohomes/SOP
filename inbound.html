@@ -995,6 +995,21 @@ function showSummary() {
   setTimeout(() => panel.scrollIntoView({ behavior:'smooth' }), 80);
 }
 
+// ── Filename builder: Inbound_{Name}.YYYY_MM_DD_HH(AM/PM)_MM ──
+function buildFilename() {
+  const clientName = (v('clientName') || 'Unknown').replace(/\s+/g, '_').replace(/[^a-zA-Z0-9_\u4e00-\u9fff]/g, '');
+  const now = new Date();
+  const YYYY = now.getFullYear();
+  const MM   = String(now.getMonth() + 1).padStart(2, '0');
+  const DD   = String(now.getDate()).padStart(2, '0');
+  let   HH   = now.getHours();
+  const min  = String(now.getMinutes()).padStart(2, '0');
+  const ampm = HH >= 12 ? 'PM' : 'AM';
+  HH = HH % 12 || 12;
+  const HHstr = String(HH).padStart(2, '0');
+  return `Inbound_${clientName}.${YYYY}_${MM}_${DD}_${HHstr}${ampm}_${min}`;
+}
+
 // ── Save (JSON to device + localStorage) ──
 function saveAllData() {
   const data = { savedAt: new Date().toISOString(), clientNameSnapshot: v('clientName') || 'Unknown' };
@@ -1010,11 +1025,10 @@ function saveAllData() {
   const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
-  const fname = (v('clientName') || 'Call').replace(/\s+/g,'_');
-  const fdate = v('callDate') || new Date().toISOString().split('T')[0];
-  a.download = `Call_${fname}_${fdate}.json`;
+  const filename = buildFilename() + '.json';
+  a.download = filename;
   a.click();
-  showToast('Saved ✓');
+  showToast('Saved: ' + filename);
 }
 
 // ── Load modal ──
@@ -1184,15 +1198,12 @@ function startTimer() {
 
 function saveRecording() {
   if (!recordedBlob) return;
-  const ext = recordedBlob.type.includes('mp4') ? 'm4a' : 'webm';
-  const name = (v('clientName') || 'Call').replace(/\s+/g,'_');
-  const date = v('callDate') || new Date().toISOString().split('T')[0];
-  const filename = `Recording_${name}_${date}.${ext}`;
+  const filename = buildFilename() + '.m4a';
   const a = document.createElement('a');
   a.href = URL.createObjectURL(recordedBlob);
   a.download = filename;
   a.click();
-  showToast('📁 Saved to Downloads: ' + filename);
+  showToast('📁 Saved: ' + filename);
 }
 </script>
 </body>
