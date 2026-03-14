@@ -297,15 +297,9 @@ main { padding: 12px 14px; max-width: 500px; margin: 0 auto; }
 [data-lang="ch"] { display: none; }
 body.lang-ch [data-lang="en"] { display: none; }
 body.lang-ch [data-lang="ch"] { display: block; }
-.script-block [data-lang="ch"],
-.branch-box [data-lang="ch"],
-.step-label [data-lang="ch"] { display: none; }
-body.lang-ch .script-block [data-lang="en"],
-body.lang-ch .branch-box [data-lang="en"],
-body.lang-ch .step-label [data-lang="en"] { display: none; }
-body.lang-ch .script-block [data-lang="ch"],
-body.lang-ch .branch-box [data-lang="ch"],
-body.lang-ch .step-label [data-lang="ch"] { display: block; }
+span[data-lang="ch"], button span[data-lang="ch"] { display: none; }
+body.lang-ch span[data-lang="en"], body.lang-ch button span[data-lang="en"] { display: none; }
+body.lang-ch span[data-lang="ch"], body.lang-ch button span[data-lang="ch"] { display: inline; }
 
 /* ── TOAST ── */
 .toast {
@@ -503,10 +497,10 @@ body.lang-ch .step-label [data-lang="ch"] { display: block; }
           <label data-lang="ch">对方反应</label>
           <select id="clientEnergy">
             <option value="">— Select —</option>
-            <option>Warm & Engaged / 热情配合</option>
-            <option>Neutral / 平淡</option>
-            <option>In a Hurry / 较匆忙</option>
-            <option>Skeptical / 有疑虑</option>
+            <option>Warm & Engaged</option>
+            <option>Neutral</option>
+            <option>In a Hurry</option>
+            <option>Skeptical</option>
           </select>
         </div>
       </div>
@@ -606,14 +600,14 @@ body.lang-ch .step-label [data-lang="ch"] { display: block; }
           <label data-lang="ch">动机</label>
           <select id="motivation">
             <option value="">— Select —</option>
-            <option>Upsizing / 换大房</option>
-            <option>Downsizing / 换小房</option>
-            <option>Relocation / 异地搬迁</option>
-            <option>Divorce / 离婚</option>
-            <option>Financial / 经济原因</option>
-            <option>Estate / 遗产</option>
-            <option>Investment / 投资变现</option>
-            <option>Other / 其他</option>
+            <option>Upsizing</option>
+            <option>Downsizing</option>
+            <option>Relocation</option>
+            <option>Divorce</option>
+            <option>Financial</option>
+            <option>Estate</option>
+            <option>Investment</option>
+            <option>Other</option>
           </select>
         </div>
         <div class="field">
@@ -621,11 +615,11 @@ body.lang-ch .step-label [data-lang="ch"] { display: block; }
           <label data-lang="ch">紧迫程度</label>
           <select id="urgency">
             <option value="">— Select —</option>
-            <option>ASAP / 尽快</option>
-            <option>Within 3 months / 3个月内</option>
-            <option>3–6 months / 3–6个月</option>
-            <option>6+ months / 半年以上</option>
-            <option>Just Exploring / 只是了解</option>
+            <option>ASAP</option>
+            <option>Within 3 months</option>
+            <option>3–6 months</option>
+            <option>6+ months</option>
+            <option>Just Exploring</option>
           </select>
         </div>
       </div>
@@ -677,9 +671,9 @@ body.lang-ch .step-label [data-lang="ch"] { display: block; }
           <label data-lang="ch">市场了解程度</label>
           <select id="mktKnowledge">
             <option value="">— Select —</option>
-            <option>Well Informed / 很了解</option>
-            <option>Some / 有一定了解</option>
-            <option>Limited / 了解不多</option>
+            <option>Well Informed</option>
+            <option>Some Knowledge</option>
+            <option>Limited</option>
           </select>
         </div>
       </div>
@@ -774,9 +768,9 @@ body.lang-ch .step-label [data-lang="ch"] { display: block; }
           <label data-lang="ch">是否确认？</label>
           <select id="apptConfirmed">
             <option value="">— Select —</option>
-            <option>Yes / 已确认</option>
-            <option>Callback Needed / 需回电</option>
-            <option>Not Yet / 未确认</option>
+            <option>Yes</option>
+            <option>Callback Needed</option>
+            <option>Not Yet</option>
           </select>
         </div>
       </div>
@@ -832,9 +826,9 @@ body.lang-ch .step-label [data-lang="ch"] { display: block; }
           <label data-lang="ch">确认方式</label>
           <select id="confirmVia">
             <option value="">— Select —</option>
-            <option>Text / 短信</option>
-            <option>Email / 电邮</option>
-            <option>Both / 两种</option>
+            <option>Text</option>
+            <option>Email</option>
+            <option>Both</option>
           </select>
         </div>
         <div class="field">
@@ -842,10 +836,10 @@ body.lang-ch .step-label [data-lang="ch"] { display: block; }
           <label data-lang="ch">潜在客户评级</label>
           <select id="callRating">
             <option value="">— Select —</option>
-            <option>🔥 Hot / 热</option>
-            <option>☀️ Warm / 一般</option>
-            <option>❄️ Cool / 冷淡</option>
-            <option>🌱 Nurture / 跟进</option>
+            <option>🔥 Hot</option>
+            <option>☀️ Warm</option>
+            <option>❄️ Cool</option>
+            <option>🌱 Nurture</option>
           </select>
         </div>
       </div>
@@ -905,10 +899,9 @@ body.lang-ch .step-label [data-lang="ch"] { display: block; }
 <div class="modal-overlay" id="loadModal">
   <div class="modal-sheet">
     <div class="modal-handle"></div>
-    <div class="modal-title" data-lang="en">📂 Saved Calls</div>
-    <div class="modal-title" data-lang="ch">📂 已保存通话</div>
+    <div class="modal-title"><span data-lang="en">📂 Saved Calls</span><span data-lang="ch">📂 已保存通话</span></div>
     <div id="savedList"></div>
-    <button class="modal-close" onclick="closeLoadModal()">Close / 关闭</button>
+    <button class="modal-close" onclick="closeLoadModal()"><span data-lang="en">Close</span><span data-lang="ch">关闭</span></button>
   </div>
 </div>
 
@@ -922,11 +915,87 @@ const FIELDS = ['callDate','callTime','callSource','clientName','callerOpening',
   'propNotes','apptDate','apptTime','decisionMakers','apptConfirmed','confirmVia',
   'callRating','followUpNotes'];
 
+// ── Language data ──
+const langText = {
+  en: {
+    clientEnergy:    ['— Select —', 'Warm & Engaged', 'Neutral', 'In a Hurry', 'Skeptical'],
+    motivation:      ['— Select —', 'Upsizing', 'Downsizing', 'Relocation', 'Divorce', 'Financial', 'Estate', 'Investment', 'Other'],
+    urgency:         ['— Select —', 'ASAP', 'Within 3 months', '3–6 months', '6+ months', 'Just Exploring'],
+    mktKnowledge:    ['— Select —', 'Well Informed', 'Some Knowledge', 'Limited'],
+    apptConfirmed:   ['— Select —', 'Yes', 'Callback Needed', 'Not Yet'],
+    confirmVia:      ['— Select —', 'Text', 'Email', 'Both'],
+    callRating:      ['— Select —', '🔥 Hot', '☀️ Warm', '❄️ Cool', '🌱 Nurture'],
+    propType:        ['—', 'Detached', 'Semi-Det.', 'Townhouse', 'Condo', 'Other'],
+  },
+  ch: {
+    clientEnergy:    ['— 请选择 —', '热情配合', '平淡', '较匆忙', '有疑虑'],
+    motivation:      ['— 请选择 —', '换大房', '换小房', '异地搬迁', '离婚', '经济原因', '遗产', '投资变现', '其他'],
+    urgency:         ['— 请选择 —', '尽快', '3个月内', '3–6个月', '半年以上', '只是了解'],
+    mktKnowledge:    ['— 请选择 —', '很了解', '有一定了解', '了解不多'],
+    apptConfirmed:   ['— 请选择 —', '已确认', '需回电', '未确认'],
+    confirmVia:      ['— 请选择 —', '短信', '电邮', '两种'],
+    callRating:      ['— 请选择 —', '🔥 热', '☀️ 一般', '❄️ 冷淡', '🌱 跟进'],
+    propType:        ['—', '独立屋', '半独立屋', '联排', '公寓', '其他'],
+  }
+};
+
+const langPlaceholders = {
+  en: {
+    callSource:        'Kijiji…',
+    callerOpening:     'e.g. They want to sell, mentioned 3-bed house in Markham, moving to condo…',
+    clientName:        'e.g. Mike Chen',
+    propAddress:       '123 Main St, Toronto',
+    motivationNotes:   'Their exact words…',
+    moveDate:          'e.g. Summer 2025',
+    destination:       'Local / Newmarket…',
+    priceExpectation:  'e.g. $1.2M',
+    propNotes:         'Renovated kitchen, new roof 2022, basement suite…',
+    decisionMakers:    'Mike + spouse',
+    clientPhoneExt:    'e.g. 102',
+    clientEmail:       'mike@email.com',
+    followUpNotes:     'Objections raised, tone, reminders…',
+  },
+  ch: {
+    callSource:        '例如：Kijiji、朋友介绍…',
+    callerOpening:     '例如：想卖房，提到万锦市3房，准备换公寓…',
+    clientName:        '例如：陈先生',
+    propAddress:       '例如：123 Main St, Toronto',
+    motivationNotes:   '对方原话…',
+    moveDate:          '例如：2025年夏',
+    destination:       '本地 / 万锦…',
+    priceExpectation:  '例如：$120万',
+    propNotes:         '例如：新厨房、屋顶2022年换新、地下室套间…',
+    decisionMakers:    '例如：Mike + 配偶',
+    clientPhoneExt:    '例如：102',
+    clientEmail:       'mike@email.com',
+    followUpNotes:     '异议、通话氛围、跟进提醒…',
+  }
+};
+
 // ── Language ──
 function setLang(lang) {
   document.body.classList.toggle('lang-ch', lang === 'ch');
   document.getElementById('btnEN').classList.toggle('active', lang === 'en');
   document.getElementById('btnCH').classList.toggle('active', lang === 'ch');
+
+  // Swap select options
+  const texts = langText[lang];
+  Object.keys(texts).forEach(selId => {
+    const sel = document.getElementById(selId);
+    if (!sel) return;
+    const cur = sel.value;
+    const opts = texts[selId];
+    sel.innerHTML = opts.map((t, i) => `<option value="${i === 0 ? '' : t}">${t}</option>`).join('');
+    // try to restore prior selection
+    Array.from(sel.options).forEach(o => { if (o.value === cur) sel.value = o.value; });
+  });
+
+  // Swap placeholders
+  const phs = langPlaceholders[lang];
+  Object.keys(phs).forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.placeholder = phs[id];
+  });
 }
 
 // ── Steps ──
