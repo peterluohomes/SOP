@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<title>Script Tools — Peter Luo</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+:root {
+  --bg: #f7f5f0;
+  --white: #ffffff;
+  --border: #e0dbd0;
+  --gold-bg: #fdf6e3;
+  --gold-border: #e8d5a0;
+  --warm-dark: #5a4a2a;
+  --light: #aaaaaa;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+  background: var(--bg);
+  min-height: 100vh;
+  padding-top: var(--safe-top);
+  padding-left: var(--safe-left);
+  padding-right: var(--safe-right);
+  padding-bottom: calc(40px + var(--safe-bottom));
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── HEADER ── */
+header {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 36px 24px 24px;
+  text-align: center;
+}
+.header-logo {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--light);
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  margin-bottom: 10px;
+}
+.header-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--warm-dark);
+  line-height: 1.2;
+}
+.header-sub {
+  font-size: 14px;
+  color: var(--light);
+  margin-top: 6px;
+}
+
+/* ── MAIN ── */
+main {
+  flex: 1;
+  padding: 28px 18px 0;
+}
+
+.section-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--light);
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  margin-bottom: 12px;
+  padding-left: 4px;
+}
+
+/* ── TOOL LIST ── */
+.tool-list {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.tool-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 20px;
+  border-bottom: 1px solid var(--border);
+  text-decoration: none;
+  color: inherit;
+  min-height: 76px;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.tool-item:last-child { border-bottom: none; }
+.tool-item:active { background: var(--gold-bg); }
+
+.tool-icon {
+  width: 50px; height: 50px;
+  border-radius: 12px;
+  background: var(--gold-bg);
+  border: 1px solid var(--gold-border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.tool-info { flex: 1; min-width: 0; }
+.tool-name {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--warm-dark);
+  line-height: 1.3;
+}
+.tool-desc {
+  font-size: 13px;
+  color: var(--light);
+  margin-top: 3px;
+  line-height: 1.4;
+}
+
+.tool-arrow {
+  font-size: 20px;
+  color: var(--light);
+  flex-shrink: 0;
+  font-weight: 300;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-logo">Pinnacle Listing System</div>
+  <div class="header-title">Script Tools</div>
+  <div class="header-sub">Peter Luo · RE/MAX Realtron</div>
+</header>
+
+<main>
+  <div class="section-label">Select a Tool</div>
+  <div class="tool-list">
+
+    <a class="tool-item" href="./inbound.html">
+      <div class="tool-icon">📞</div>
+      <div class="tool-info">
+        <div class="tool-name">Inbound Calls</div>
+        <div class="tool-desc">Greet, qualify & book appointments</div>
+      </div>
+      <span class="tool-arrow">›</span>
+    </a>
+
+    <a class="tool-item" href="./openhouse.html">
+      <div class="tool-icon">🏡</div>
+      <div class="tool-info">
+        <div class="tool-name">Open House</div>
+        <div class="tool-desc">Engage visitors & capture leads</div>
+      </div>
+      <span class="tool-arrow">›</span>
+    </a>
+
+    <a class="tool-item" href="./doorknocking.html">
+      <div class="tool-icon">🚪</div>
+      <div class="tool-info">
+        <div class="tool-name">Door Knocking</div>
+        <div class="tool-desc">Neighbourhood prospecting script</div>
+      </div>
+      <span class="tool-arrow">›</span>
+    </a>
+
+    <a class="tool-item" href="./prelisting_interview.html">
+      <div class="tool-icon">📋</div>
+      <div class="tool-info">
+        <div class="tool-name">Prelisting Interview</div>
+        <div class="tool-desc">Discover needs before the presentation</div>
+      </div>
+      <span class="tool-arrow">›</span>
+    </a>
+
+  </div>
+</main>
+
+</body>
+</html>
