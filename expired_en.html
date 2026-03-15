@@ -212,6 +212,9 @@ main { padding: 10px 14px; max-width: 500px; margin: 0 auto; }
       <div class="field"><label>Date</label><input type="date" id="sessDate"></div>
       <div class="field"><label>Area / Street</label><input type="text" id="sessArea" placeholder="e.g. Elmwood Ave, Markham"></div>
     </div>
+    <div style="margin-top:10px;">
+      <div class="field"><label>Property Address</label><input type="text" id="sessAddress" placeholder="e.g. 123 Elmwood Ave, Markham"></div>
+    </div>
     <div style="margin-top:10px;" class="frow2">
       <div class="field"><label>Homeowner Name</label><input type="text" id="sessName" placeholder="e.g. Mr. Chen"></div>
       <div class="field"><label>Contact Source</label>
@@ -1004,7 +1007,7 @@ document.getElementById('sessDate').value = new Date().toISOString().split('T')[
 
 // ── Field IDs ──
 const FIELDS = [
-  'sessDate','sessArea','sessName','sessSource',
+  'sessDate','sessArea','sessAddress','sessName','sessSource',
   'apNote1','apNote2','apNote3','apNote4','apNote5','apNote6',
   'apRef3','apResp3','apCtx5',
   'onote1','onote2','onote3','onote4','onote5','onote6',
@@ -1016,13 +1019,13 @@ function v(id) { const el = document.getElementById(id); return el ? el.value.tr
 
 // ── Filename ──
 function buildFilename() {
-  const name = (v('sessName') || 'Contact').replace(/\s+/g,'_').replace(/[^a-zA-Z0-9_\u4e00-\u9fff]/g,'');
+  const addr = (v('sessAddress') || 'Address').replace(/\s+/g,'_').replace(/[^a-zA-Z0-9_]/g,'');
   const now = new Date();
   const MM = String(now.getMonth()+1).padStart(2,'0');
   const DD = String(now.getDate()).padStart(2,'0');
   let HH = now.getHours(); const min = String(now.getMinutes()).padStart(2,'0');
   const ampm = HH >= 12 ? 'PM' : 'AM'; HH = (HH % 12) || 12;
-  return `ExpiredListing_${name}.${now.getFullYear()}_${MM}_${DD}_${String(HH).padStart(2,'0')}${ampm}_${min}`;
+  return `Expired_${addr}.${now.getFullYear()}_${MM}_${DD}_${String(HH).padStart(2,'0')}${ampm}_${min}`;
 }
 
 // ── Save ──

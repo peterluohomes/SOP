@@ -184,6 +184,9 @@ main { padding: 10px 14px; max-width: 500px; margin: 0 auto; }
       <div class="field"><label>日期</label><input type="date" id="sessDate"></div>
       <div class="field"><label>街道 / 区域</label><input type="text" id="sessArea" placeholder="例如：万锦市Elmwood大道"></div>
     </div>
+    <div style="margin-top:10px;">
+      <div class="field"><label>物业地址</label><input type="text" id="sessAddress" placeholder="例如：123 Elmwood Ave, Markham"></div>
+    </div>
     <div style="margin-top:10px;" class="frow2">
       <div class="field"><label>屋主姓名</label><input type="text" id="sessName" placeholder="例如：陈先生"></div>
       <div class="field"><label>接触来源</label>
@@ -977,7 +980,7 @@ function toggleObj(id) {
 document.getElementById('sessDate').value = new Date().toISOString().split('T')[0];
 
 const FIELDS = [
-  'sessDate','sessArea','sessName','sessSource',
+  'sessDate','sessArea','sessAddress','sessName','sessSource',
   'apNote1','apNote2','apNote3','apNote4','apNote5','apNote6',
   'apRef3','apResp3','apCtx5',
   'onote1','onote2','onote3','onote4','onote5','onote6',
@@ -988,13 +991,13 @@ const FIELDS = [
 function v(id) { const el = document.getElementById(id); return el ? el.value.trim() : ''; }
 
 function buildFilename() {
-  const name = (v('sessName') || '联系人').replace(/\s+/g,'_').replace(/[^a-zA-Z0-9_\u4e00-\u9fff]/g,'');
+  const addr = (v('sessAddress') || 'Address').replace(/\s+/g,'_').replace(/[^a-zA-Z0-9_]/g,'');
   const now = new Date();
   const MM = String(now.getMonth()+1).padStart(2,'0');
   const DD = String(now.getDate()).padStart(2,'0');
   let HH = now.getHours(); const min = String(now.getMinutes()).padStart(2,'0');
   const ampm = HH >= 12 ? 'PM' : 'AM'; HH = (HH % 12) || 12;
-  return `Expired_${name}.${now.getFullYear()}_${MM}_${DD}_${String(HH).padStart(2,'0')}${ampm}_${min}`;
+  return `Expired_${addr}.${now.getFullYear()}_${MM}_${DD}_${String(HH).padStart(2,'0')}${ampm}_${min}`;
 }
 
 function saveAllData() {
